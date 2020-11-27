@@ -150,7 +150,6 @@ void shelp(void){
 }
 
 int main(int argc, char **argv){
-    //colocar caracter nulo em todos os espaços do vetor
     if(parseArgs(argc, argv) != SUCCESS){
         printf("[!] args não foram identificados.\n");
         shelp();
