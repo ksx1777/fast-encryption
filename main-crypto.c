@@ -56,9 +56,10 @@ double fsize(void){
 }
 
 char *readf(void){
-    char *content = (char*)malloc(MAX_BUFFER * sizeof(char));
+    double fs = fsize();
+    char *content = (char*)malloc(fs * sizeof(char));
     FILE *f = fopen(F_NAME, "rb");
-    fread(content, 1, MAX_BUFFER, f);
+    fread(content, 1, fs, f);
     fclose(f);
     return content;
 }
@@ -161,8 +162,11 @@ int main(int argc, char **argv){
            " => tamanho do arquivo: %0.2f kb\n"
            " => opção: %hi\n", F_NAME, len/1024, opt);
     char *content = readf();
-    if(opt == 1){
-        encrypt(content, len, 130, 50);
+    clock_t start = clock();
+//    printf("[teste] %0.2f\n", startTime);
+    if(opt == 1){ encrypt(content, len, 130, 50);
     } else decrypt(content, len, 130, 50);
+    clock_t end = clock();
+    printf("[*] tempo decorrido: %ldms\n", (end-start)/1000);
     return SUCCESS;
 }
