@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_BUFFER 32 * 1024 //32KB
+//#define MAX_BUFFER 32 * 1024 //32KB
 
 #define ID_FNAME 0
 #define ID_OPT 1
